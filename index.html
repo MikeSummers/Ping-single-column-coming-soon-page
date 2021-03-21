@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Ping coming soon page</title>
+</head>
+
+<body>
+  <div id="wrapper">
+    <main>
+      <header>
+        <img src="./images/logo.svg" id="logo">
+        <h1>We are launching <span>soon!</span></h1>
+        <p>Subscribe and get notified</p>
+      </header>
+
+      <form id="form" novalidate>
+        <input class="btn btn_email" id="email" name="email" type="text" placeholder="Your email address..." />
+        <p class="error-msg">Please provide a valid email address</p>
+        <button type="submit" class="btn btn_notify">Notify Me</button>
+      </form>
+
+      <section id="image">
+        <img src="./images/illustration-dashboard.png" id="main_img">
+      </section>
+
+      <section id="social_media">
+        <div class="outline"><i class="fab fa-facebook"></i></div>
+        <div class="outline"><i class="fab fa-twitter"></i></div>
+        <div class="outline"><i class="fab fa-instagram"></i></div>
+      </section>
+
+      <footer>
+        <p>&copy; Copyright Ping. All rights reserved.</p>
+        <p class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+          Coded by <a href="#">Mike Summers</a>.
+        </p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // script copied from Frontend Mentor. Can't remember who so if it's you please contact and i will put your name / link here
+    const form = document.getElementById("form");
+    const email = document.getElementById("email");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      onClick();
+    });
+
+    function onClick() {
+      const emailVal = email.value;
+      if (validateEmail(emailVal)) {
+        form.classList.remove("error");
+      } else {
+        form.classList.add("error");
+      }
+    }
+
+    function validateEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
+    }
+  </script>
+
+</body>
+
+</html>
